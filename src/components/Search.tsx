@@ -1,4 +1,4 @@
-import "../styles/Search.css";
+import styles from "../styles/Search.module.css";
 import { useRef } from "react";
 
 interface SearchProps {
@@ -17,16 +17,20 @@ const Search = ({ setSearch }: SearchProps) => {
   };
 
   return (
-    <div className="search-containter">
+    <div className={styles["search-containter"]}>
       <input
         ref={inputRef}
-        className="search-text"
+        className={styles["search-text"]}
         placeholder="Search city"
         onChange={(event) => {
           searchValue = (event.target as HTMLInputElement).value;
         }}
       />
-      <button type="submit" className="search-button" onClick={handleClick}>
+      <button
+        type="submit"
+        className={styles["search-button"]}
+        onClick={handleClick}
+      >
         Search
       </button>
     </div>

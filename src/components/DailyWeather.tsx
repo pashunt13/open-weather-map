@@ -1,80 +1,77 @@
-import "../styles/DailyWeather.css";
+import styles from "../styles/DailyWeather.module.css";
 
-interface DailyWeatherProps {
-  day?: string;
-  temperature?: number;
-  sub?: string;
-  search: string;
-}
+// interface DailyWeatherProps {
+//   day?: string;
+//   temperature?: number;
+//   sub?: string;
+// }
 
-const DailyWeather = ({ search }: DailyWeatherProps) => {
-  if (search === "") return <></>;
-
+const DailyWeather = () => {
   return (
-    <div className="daily-container">
+    <div className={styles["daily-container"]}>
       <h3>8-day forecast</h3>
-      <ul className="daily-list">
-        <li className="daily-item">
+      <ul className={styles["daily-list"]}>
+        <li className={styles["daily-item"]}>
           <span>Mon, Jul 31</span>
-          <div className="dayly-item-data">
+          <div className={styles["dayly-item-data"]}>
             <div>21 / 16°C</div>
-            <span className="dayly-sub">moderate rain</span>
+            <span className={styles["dayly-sub"]}>moderate rain</span>
           </div>
         </li>
 
-        <li className="daily-item">
+        <li className={styles["daily-item"]}>
           <span>Mon, Jul 31</span>
-          <div className="dayly-item-data">
+          <div className={styles["dayly-item-data"]}>
             <div>21 / 16°C</div>
-            <span className="dayly-sub">moderate rain</span>
+            <span className={styles["dayly-sub"]}>moderate rain</span>
           </div>
         </li>
 
-        <li className="daily-item">
+        <li className={styles["daily-item"]}>
           <span>Mon, Jul 31</span>
-          <div className="dayly-item-data">
+          <div className={styles["dayly-item-data"]}>
             <div>21 / 16°C</div>
-            <span className="dayly-sub">moderate rain</span>
+            <span className={styles["dayly-sub"]}>moderate rain</span>
           </div>
         </li>
 
-        <li className="daily-item">
+        <li className={styles["daily-item"]}>
           <span>Mon, Jul 31</span>
-          <div className="dayly-item-data">
+          <div className={styles["dayly-item-data"]}>
             <div>21 / 16°C</div>
-            <span className="dayly-sub">moderate rain</span>
+            <span className={styles["dayly-sub"]}>moderate rain</span>
           </div>
         </li>
 
-        <li className="daily-item">
+        <li className={styles["daily-item"]}>
           <span>Mon, Jul 31</span>
-          <div className="dayly-item-data">
+          <div className={styles["dayly-item-data"]}>
             <div>21 / 16°C</div>
-            <span className="dayly-sub">moderate rain</span>
+            <span className={styles["dayly-sub"]}>moderate rain</span>
           </div>
         </li>
 
-        <li className="daily-item">
+        <li className={styles["daily-item"]}>
           <span>Mon, Jul 31</span>
-          <div className="dayly-item-data">
+          <div className={styles["dayly-item-data"]}>
             <div>21 / 16°C</div>
-            <span className="dayly-sub">moderate rain</span>
+            <span className={styles["dayly-sub"]}>moderate rain</span>
           </div>
         </li>
 
-        <li className="daily-item">
+        <li className={styles["daily-item"]}>
           <span>Mon, Jul 31</span>
-          <div className="dayly-item-data">
+          <div className={styles["dayly-item-data"]}>
             <div>21 / 16°C</div>
-            <span className="dayly-sub">moderate rain</span>
+            <span className={styles["dayly-sub"]}>moderate rain</span>
           </div>
         </li>
 
-        <li className="daily-item">
+        <li className={styles["daily-item"]}>
           <span>Mon, Jul 31</span>
-          <div className="dayly-item-data">
+          <div className={styles["dayly-item-data"]}>
             <div>21 / 16°C</div>
-            <span className="dayly-sub">moderate rain</span>
+            <span className={styles["dayly-sub"]}>moderate rain</span>
           </div>
         </li>
       </ul>
