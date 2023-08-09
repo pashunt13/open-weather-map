@@ -1,5 +1,5 @@
 import { useState } from "react";
-import Search from "./components/Search";
+import { SearchBar } from "./components/SearchBar";
 import CurrentWeather from "./components/CurrentWeather";
 import DailyWeather from "./components/DailyWeather";
 
@@ -9,14 +9,14 @@ function App() {
   if (search === "") {
     return (
       <div className="App">
-        <Search setSearch={setSearch} />
+        <SearchBar setSearch={setSearch} />
       </div>
     );
   }
 
   return (
     <div className="App">
-      <Search setSearch={setSearch} />
+      <SearchBar setSearch={setSearch} />
       <CurrentWeather />
       <DailyWeather />
     </div>
