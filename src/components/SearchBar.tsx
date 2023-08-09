@@ -9,8 +9,8 @@ export function SearchBar({ setSearch }: SearchProps) {
   let setSearchValue = "";
   const inputRef = useRef<HTMLInputElement>(null);
 
-  function handleChange(event: React.FormEvent<HTMLInputElement>) {
-    setSearchValue = (event.target as HTMLInputElement).value;
+  function handleChange(event: React.ChangeEvent<HTMLInputElement>) {
+    setSearchValue = event.target.value;
   }
 
   function handleClick() {
@@ -26,7 +26,7 @@ export function SearchBar({ setSearch }: SearchProps) {
         ref={inputRef}
         className={styles["search-text"]}
         placeholder="Search city"
-        onChange={(e) => handleChange(e)}
+        onChange={handleChange}
       />
       <button
         type="submit"
