@@ -1,20 +1,24 @@
-import styles from "../styles/Search.module.css";
 import { useRef } from "react";
+import styles from "../styles/Search.module.css";
 
 interface SearchProps {
-  setSearch: Function;
+  setSearch: (search: string) => void;
 }
 
-const Search = ({ setSearch }: SearchProps) => {
-  let searchValue = "";
+export function SearchBar({ setSearch }: SearchProps) {
+  let setSearchValue = "";
   const inputRef = useRef<HTMLInputElement>(null);
 
-  const handleClick = () => {
-    setSearch(searchValue);
+  function handleChange(event: React.FormEvent<HTMLInputElement>) {
+    setSearchValue = (event.target as HTMLInputElement).value;
+  }
+
+  function handleClick() {
+    setSearch(setSearchValue);
     if (inputRef.current != null) {
       inputRef.current.value = "";
     }
-  };
+  }
 
   return (
     <div className={styles["search-containter"]}>
@@ -22,9 +26,7 @@ const Search = ({ setSearch }: SearchProps) => {
         ref={inputRef}
         className={styles["search-text"]}
         placeholder="Search city"
-        onChange={(event) => {
-          searchValue = (event.target as HTMLInputElement).value;
-        }}
+        onChange={(e) => handleChange(e)}
       />
       <button
         type="submit"
@@ -35,6 +37,4 @@ const Search = ({ setSearch }: SearchProps) => {
       </button>
     </div>
   );
-};
-
-export default Search;
+}
