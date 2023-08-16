@@ -1,5 +1,5 @@
 import { useRef } from "react";
-import styles from "../styles/Search.module.css";
+import styles from "../styles/SearchBar.module.css";
 
 interface SearchProps {
   setSearch: (search: string) => void;
