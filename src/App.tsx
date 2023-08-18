@@ -10,7 +10,7 @@ function App() {
   return (
     <div className="App">
       <SearchBar setSearch={setSearch} />
-      {search === "" || (
+      {search !== "" && (
         <>
           <CurrentWeather data={currentWeatherData} />
           <DailyWeather data={dailyWeatherData} />

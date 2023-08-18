@@ -10,7 +10,7 @@ export function CurrentWeather({ data }: CurrentWeatherProps) {
     if (degrees > 315 || degrees < 45) return "N";
     else if (degrees > 45 && degrees < 135) return "E";
     else if (degrees > 135 && degrees < 225) return "S";
-    else return "W";
+    return "W";
   }
 
   return (
