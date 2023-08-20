@@ -31,14 +31,14 @@ h3 {
   box-sizing: border-box;
 }
 
-.dayly-item-data {
+.daily-item-data {
   display: flex;
   justify-content: space-between;
   align-items: center;
   flex-basis: 50%;
 }
 
-.dayly-sub {
+.daily-description {
   width: 70px;
   text-align: right;
   color: #8a8a8a;

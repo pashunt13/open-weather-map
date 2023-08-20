@@ -1,35 +1,36 @@
+import { CurrentWeather as CurrentWeatherModel } from "../models";
 import styles from "../styles/CurrentWeather.module.css";
 
-// interface CurrentWeatherProps {
-//   temperature?: number;
-//   description?: string;
-//   windSpeed?: number;
-//   atmoPressure?: number;
-//   humidity?: number;
-//   ultraviolet?: number;
-//   dewPoint?: number;
-//   visibility?: number;
-// }
+interface CurrentWeatherProps {
+  data: CurrentWeatherModel;
+}
 
-const CurrentWeather = () => {
+export function CurrentWeather({ data }: CurrentWeatherProps) {
+  function calcWindDirection(degrees: number) {
+    if (degrees > 315 || degrees < 45) return "N";
+    else if (degrees > 45 && degrees < 135) return "E";
+    else if (degrees > 135 && degrees < 225) return "S";
+    return "W";
+  }
+
   return (
     <div className={styles["current-containter"]}>
-      <span className={styles["orange-text"]}>Jul 31, 01:10pm</span>
-      <h2>London, GB</h2>
-      <div className={styles["current-temp"]}>20°C</div>
-      <div className={styles["current-desc"]}>
-        Feels like 20°C. Scattered clouds. Moderate breeze
-      </div>
+      <span className={styles["orange-text"]}>{data.date}</span>
+      <h2>{data.location}</h2>
+      <div className={styles["current-temp"]}>{data.temperature}°C</div>
+      <div className={styles["current-desc"]}>{data.description}</div>
       <ul className={styles["current-list"]}>
-        <li className={styles["current-item"]}> 7.7m/s W</li>
-        <li className={styles["current-item"]}>1003 hPa</li>
-        <li className={styles["current-item"]}>Humidity: 75%</li>
-        <li className={styles["current-item"]}>UV: 3</li>
-        <li className={styles["current-item"]}>Dew point: 15°C</li>
-        <li className={styles["current-item"]}>Visibility: 10.0km</li>
+        <li className={styles["current-item"]}>
+          {data.windSpeed}m/s {calcWindDirection(data.windDegrees)}
+        </li>
+        <li className={styles["current-item"]}>{data.atmoPressure} hPa</li>
+        <li className={styles["current-item"]}>Humidity: {data.humidity}%</li>
+        <li className={styles["current-item"]}>UV: {data.ultraviolet}</li>
+        <li className={styles["current-item"]}>Dew point: {data.dewPoint}°C</li>
+        <li className={styles["current-item"]}>
+          Visibility: {(data.visibility / 1000).toFixed(1)}km
+        </li>
       </ul>
     </div>
   );
-};
-
-export default CurrentWeather;
+}
